@@ -20,7 +20,8 @@ void *ft_memset(void *str, int c, size_t n)
 // #include <stdio.h>
 // #include <string.h>
 
-// int main (void) {
+// int main (void) 
+// {
 //    char str[50];
 
 //    strcpy(str,"This is string.h library function");
