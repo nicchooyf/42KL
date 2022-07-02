@@ -6,14 +6,11 @@ void *ft_memset(void *str, int c, size_t n)
     char *p;
     char *tmp;
 
+    i = -1;
     p = str;
     tmp = p;
-    i = -1;
     while (++i < n)
-    {
-        *tmp = (char) c;
-        tmp++;
-    }
+        *tmp++ = (char) c;
     return p; 
 }
 
