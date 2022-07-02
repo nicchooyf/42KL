@@ -1,5 +1,9 @@
 #include <stddef.h>
 
+// [---str2---]
+//			[---str1---]
+//	copy back to front
+
 void *ft_memmove(void *str1, const void *str2, size_t n)
 {
 	int i;
@@ -36,7 +40,7 @@ void *ft_memmove(void *str1, const void *str2, size_t n)
 //     fourth = string;
 
 //     puts(string);
-//     memcpy(third+5, third, 7);
+//     memmove(third+5, third, 7);
 //     puts(third);
 //     ft_memmove(fourth+5, fourth, 7);
 //     puts(fourth);
