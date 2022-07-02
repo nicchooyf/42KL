@@ -1,19 +1,24 @@
 #include <stddef.h>
 
-void *ft_memcpy(void *dest, const void * src, size_t n)
+void *ft_memccpy(void *dest, const void * src, int c, size_t count)
 {
 	int i;
 	unsigned char *p;
-	unsigned char *d;
 	unsigned char *tmp;
 
 	i = -1;
 	p = (unsigned char *) src;
-	d = dest;
-	tmp = d;
-	while (++i < n)
+	tmp = dest;
+	while (++i < count)
+	{
 		*tmp++ = *p++;
-	return d;
+		if (*p == (char) c)
+		{
+			*tmp = *p;
+			break;
+		}
+	}
+	return dest;
 }
 
 // #include <stdio.h>
@@ -24,7 +29,7 @@ void *ft_memcpy(void *dest, const void * src, size_t n)
 //    char dest[50];
 //    strcpy(dest,"Heloooo!!");
 //    printf("Before memcpy dest = %s\n", dest);
-//    ft_memcpy(dest, src, strlen(src)+1);
+//    ft_memccpy(dest, src, 'p',strlen(src)+1);
 //    printf("After memcpy dest = %s\n", dest);
    
 //    return(0);

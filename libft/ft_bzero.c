@@ -3,8 +3,8 @@
 void ft_bzero(void *s, int nbyte)
 {
 	size_t	i;
-	char *p;
-	char *tmp;
+	unsigned char *p;
+	unsigned char *tmp;
 
 	i = (size_t) nbyte;
 	p = s;
