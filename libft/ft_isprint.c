@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 11:01:14 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/04 11:57:58 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/04 10:53:36 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/04 12:00:34 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, int nbyte)
+int	ft_isprint(int arg)
 {
-	size_t			i;
-	unsigned char	*p;
-
-	i = (size_t) nbyte;
-	p = s;
-	while (i > 0)
-	{
-		*p++ = 0;
-		i--;
-	}
+	if (arg > 31 && arg < 127)
+		return (1);
+	else
+		return (0);
 }

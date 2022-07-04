@@ -1,24 +1,23 @@
-#include <stddef.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/04 10:57:42 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/04 12:02:39 by nchoo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-
-// int main () {
-//    char str[50];
-
-//    strcpy(str, "This is tutorialspoint.com");
-
-//    printf("actual:|%d|\nft_strlen: |%d|\n", strlen(str), ft_strlen(str));
-   
-//    return(0);
-// }

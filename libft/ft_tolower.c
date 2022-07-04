@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 11:01:14 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/04 11:57:58 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/04 15:23:53 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/04 15:26:28 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int nbyte)
+int	ft_tolower(int ch)
 {
-	size_t			i;
-	unsigned char	*p;
+	char	c;
 
-	i = (size_t) nbyte;
-	p = s;
-	while (i > 0)
-	{
-		*p++ = 0;
-		i--;
-	}
+	c = (char) ch;
+	if (c >= 'A' && c <= 'Z')
+		ch += 32;
+	return (ch);
 }
