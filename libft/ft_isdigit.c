@@ -6,15 +6,15 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:23:37 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/04 12:00:23 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/05 11:41:29 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int arg)
 {
-	char	c;
+	int	c;
 
-	c = (char) arg;
+	c = arg;
 	if (c >= '0' && c <= '9')
 		return (1);
 	else

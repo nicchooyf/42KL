@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 11:13:16 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/04 13:09:24 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/05 11:19:21 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	unsigned char	*tmp;
 	unsigned char	*tmp2;
 
+	if (str1 == NULL && str2 == NULL)
+		return (NULL);
 	p = (unsigned char *) str2;
 	tmp = str1;
 	tmp2 = p;
