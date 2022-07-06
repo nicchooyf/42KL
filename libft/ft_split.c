@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:23:21 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/05 20:34:16 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/07/06 12:29:29 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static char	*split_strdup(const char *s, char c)
 char	**ft_split(const char *s, char c)
 {
 	char	**tab;
-	char	**tmp;
 	int		count;
 	int		check;
 
@@ -66,18 +65,17 @@ char	**ft_split(const char *s, char c)
 	tab = malloc(sizeof(char *) * (count + 1));
 	if (!tab)
 		return (NULL);
-	tmp = tab;
 	while (*s)
 	{
 		if (check && !(*s == c))
 		{
-			*tmp++ = split_strdup(s, c);
+			*tab++ = split_strdup(s, c);
 			check = 0;
 		}
 		else if (!check && (*s == c))
 			check = 1;
 		s++;
 	}
-	*tmp = 0;
-	return (tab);
+	*tab = 0;
+	return (tab - count);
 }
