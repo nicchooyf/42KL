@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 17:34:52 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/06 16:32:56 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/06 21:10:40 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/06 22:40:33 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	count;
+	t_list	*head;
+	t_list	*tmp;
+	t_list	*new;
 
-	i = 0;
-	if (!to_find[0])
-		return ((char *)str);
-	while (str[i] && i < len)
+	if (!lst || !f)
+		return (NULL);
+	head = ft_lstnew(f(lst->content));
+	if (!head)
+		return (NULL);
+	tmp = lst;
+	tmp = tmp->next;
+	while (tmp)
 	{
-		count = 0;
-		while (str[i + count] == to_find[count] && (i + count) < len)
+		new = ft_lstnew(f(tmp->content));
+		if (!new)
 		{
-			count++;
-			if (count == ft_strlen(to_find))
-				return ((char *)&str[i]);
+			ft_lstclear(&new, del);
+			return (NULL);
 		}
-		i++;
+		ft_lstadd_back(&head, new);
+		tmp = tmp->next;
 	}
-	return (NULL);
+	return (head);
 }

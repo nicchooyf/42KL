@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 17:34:52 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/06 16:32:56 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/06 12:42:14 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/06 22:25:54 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	count;
+	t_list *new;
 
-	i = 0;
-	if (!to_find[0])
-		return ((char *)str);
-	while (str[i] && i < len)
-	{
-		count = 0;
-		while (str[i + count] == to_find[count] && (i + count) < len)
-		{
-			count++;
-			if (count == ft_strlen(to_find))
-				return ((char *)&str[i]);
-		}
-		i++;
-	}
-	return (NULL);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

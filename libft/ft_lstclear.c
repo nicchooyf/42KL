@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 17:34:52 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/06 16:32:56 by nchoo            ###   ########.fr       */
+/*   Created: 2022/07/06 20:51:09 by nchoo             #+#    #+#             */
+/*   Updated: 2022/07/06 21:03:37 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	if (!to_find[0])
-		return ((char *)str);
-	while (str[i] && i < len)
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		count = 0;
-		while (str[i + count] == to_find[count] && (i + count) < len)
-		{
-			count++;
-			if (count == ft_strlen(to_find))
-				return ((char *)&str[i]);
-		}
-		i++;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = (*lst)->next;
 	}
-	return (NULL);
 }
